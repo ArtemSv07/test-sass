@@ -1,0 +1,19 @@
+@use "../utils/placeholders";
+@use "../utils/variables" as var;
+@use "../utils/functions" as fn;
+@use "../utils/mixins" as mx;
+
+.logo {
+  @extend %main-title; // оформлення  для тексту
+
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 8px 20px;
+  color: fn.get-color("accent-primary");
+
+  @include mx.mq("lg") {
+    // медіа-запит  "lg": 1200px,
+    padding: 17px 20px;
+  }
+}

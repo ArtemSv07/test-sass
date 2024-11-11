@@ -1,0 +1,8 @@
+@use "btn/btn" as btn with (
+  $btn-padding-x: 10px
+);
+
+.welcome-btn {
+  display: block;
+  margin: 0 auto;
+}
