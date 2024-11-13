@@ -15,5 +15,8 @@
     grid-area: header;
     padding: 24px 36px;
     justify-content: space-between;
+    .btn-header {
+      display: none;
+    }
   }
 }

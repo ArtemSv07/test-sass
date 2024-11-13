@@ -18,4 +18,8 @@
     opacity: 1;
     transform: rotate(0deg);
   }
+
+  @include mx.mq("lg") {
+    display: none;
+  }
 }

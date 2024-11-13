@@ -1,0 +1,28 @@
+@use "../utils/functions" as fn;
+
+.btn--transparent {
+  display: flex;
+  gap: 10px;
+
+  &:active {
+    color: fn.get-color("light-secondary");
+    .header-btn-icon {
+      // stroke: #b5b5be;
+      fill: #b5b5be;
+    }
+  }
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      color: fn.get-color("light-secondary");
+      .header-btn-icon {
+        stroke: #b5b5be;
+        fill: #b5b5be;
+      }
+    }
+  }
+
+  &[disabled] {
+    background-color: #b5b5be;
+  }
+}
