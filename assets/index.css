@@ -172,6 +172,13 @@ meter {
   letter-spacing: 0.02em;
 }
 
+.page-title-accent {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+}
+
 body {
   font-size: 16px;
   font-weight: 400;
@@ -179,7 +186,7 @@ body {
   letter-spacing: 0.03em;
 }
 
-.menu-link {
+.search-input, .menu-link {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.43;
@@ -343,13 +350,29 @@ summary {
   background-color: #b5b5be;
 }
 
-.welcome-btn {
-  display: block;
-  margin: 0 auto;
+.welcome {
+  grid-area: welcome;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+     -moz-box-align: end;
+          align-items: flex-end;
+  row-gap: 16px;
 }
 
-.co-workers {
-  grid-area: co-workers;
+.page-title-accent {
+  display: block;
+  margin-bottom: 8px;
+  color: #fafafd;
 }
 
 .tasks {
@@ -450,6 +473,61 @@ summary {
       -ms-transform: rotate(0deg);
           transform: rotate(0deg);
 }
+
+.btn--transparent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  gap: 10px;
+}
+.btn--transparent:active {
+  color: #b5b5be;
+}
+.btn--transparent:active .header-btn-icon {
+  fill: #b5b5be;
+}
+.btn--transparent[disabled] {
+  background-color: #b5b5be;
+}
+
+.search-field {
+  -webkit-transition: 300ms ease;
+  -moz-transition: 300ms ease;
+  transition: 300ms ease;
+  -webkit-transition-property: width, color;
+  -moz-transition-property: width, color;
+  transition-property: width, color;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+.search-field:focus-within {
+  color: #fafafd;
+}
+
+.search-icon {
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+  fill: currentColor;
+  margin-right: 8px;
+}
+
+.search-input {
+  min-width: 165px;
+  min-height: 20px;
+}
+
+.co-workers {
+  grid-area: co-workers;
+}
+
 @media only screen and (min-width: 768px) {
   .main {
     gap: 36px;
@@ -458,6 +536,7 @@ summary {
     grid-template-areas: "welcome welcome" "co-workers";
   }
 }
+
 @media only screen and (min-width: 1200px) {
   .header {
     grid-area: header;
@@ -466,6 +545,9 @@ summary {
     -webkit-justify-content: space-between;
        -moz-box-pack: justify;
             justify-content: space-between;
+  }
+  .header .btn-header {
+    display: none;
   }
   .main {
     grid-area: main;
@@ -483,10 +565,20 @@ summary {
     background-color: #1c1c24;
     height: 100vh;
   }
+  .page-title-accent {
+    margin-bottom: 16px;
+  }
   .logo {
     padding: 17px 20px;
   }
+  .menu-btn {
+    display: none;
+  }
+  .search-field {
+    margin-right: auto;
+  }
 }
+
 @media only screen and (max-width: 1199.98px) {
   .sidebar {
     position: fixed;
@@ -529,7 +621,29 @@ summary {
        -moz-transition-delay: 300ms;
             transition-delay: 300ms;
   }
+  .search-field {
+    width: 30px;
+  }
+  .search-field:focus-within {
+    width: 200px;
+  }
+  .search-input {
+    -webkit-transition: 300ms ease;
+    -moz-transition: 300ms ease;
+    transition: 300ms ease;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    transition-property: opacity;
+    opacity: 0;
+  }
+  .search-input:focus {
+    opacity: 1;
+    -webkit-transition-delay: 400ms;
+       -moz-transition-delay: 400ms;
+            transition-delay: 400ms;
+  }
 }
+
 @media (hover: hover) {
   .btn--primary:hover, .btn--primary:focus {
     background-color: #f15c27;
@@ -545,5 +659,12 @@ summary {
     background-color: #8239b9;
     -webkit-box-shadow: 0px 4px 10px 0px rgba(240, 127, 46, 0.25);
             box-shadow: 0px 4px 10px 0px rgba(240, 127, 46, 0.25);
+  }
+  .btn--transparent:hover, .btn--transparent:focus {
+    color: #b5b5be;
+  }
+  .btn--transparent:hover .header-btn-icon, .btn--transparent:focus .header-btn-icon {
+    stroke: #b5b5be;
+    fill: #b5b5be;
   }
 }
